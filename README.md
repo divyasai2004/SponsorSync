@@ -1,41 +1,113 @@
-# SponsorSync
-A smart matchmaking platform within EventEye where student clubs can create sponsor-ready event profiles — including audience size, themes, past engagement, and reach. Sponsors can filter opportunities based on their industry, target demographic, and marketing goals
+# SponsorSync – Smart Sponsorship & Brand Matchmaking Engine
+
+SponsorSync is a modern web application that connects student clubs/organizers with sponsors/brands for smarter, easier event partnerships. It provides matchmaking, profile management, in-app messaging, and more—all in a beautiful, responsive UI.
 
 ---
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 🚀 Features
 
-## Getting Started
+- **User Types:**
+  - Student Club / Organizer
+  - Sponsor / Brand
+- **Authentication:** Register/Login with email & password (role-based)
+- **Profile Management:**
+  - Student Clubs: Event name, description, theme, audience, reach, social stats, past events, sponsorship requirements
+  - Sponsors: Brand name, website, industry, audience, goals, region, budget
+- **Smart Matchmaking:**
+  - Rule-based matching with match % score
+  - Filter matches by industry and audience
+- **Communication:**
+  - In-app messaging (text, threads, new message by email)
+  - (Planned) File upload for proposals
+- **Modern UI:**
+  - Responsive, mobile-friendly, and visually engaging
+  - Dashboard, profile, matches, and messaging pages
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🛠️ Tech Stack
+- **Frontend:** Next.js (App Router, React, Tailwind CSS)
+- **Backend:** Node.js, Express, Mongoose (MongoDB)
+- **Authentication:** JWT (JSON Web Tokens)
+- **Icons/UI:** Heroicons, Tailwind
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the repository
+```sh
+git clone https://github.com/your-username/sponsorsync.git
+cd sponsorsync
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
+#### Backend
+```sh
+cd backend
+npm install
+```
+#### Frontend
+```sh
+cd ../frontend
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Environment Variables
+Create a `.env` file in the `backend` folder:
+```
+MONGO_URI=mongodb://localhost:27017/sponsorsync
+PORT=5000
+JWT_SECRET=your_jwt_secret
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Start the servers
+#### Backend
+```sh
+cd backend
+node server.js
+```
+#### Frontend
+```sh
+cd frontend
+npm run dev
+```
 
-## Learn More
+- Frontend: [http://localhost:3000](http://localhost:3000)
+- Backend: [http://localhost:5000](http://localhost:5000)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧑‍💻 Usage
+- Register as a Student Club or Sponsor
+- Complete your profile
+- View and filter matches (with match %)
+- Start conversations via in-app messaging
+- (Planned) Upload and share proposals/files in messages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🌱 Contributing
+1. Fork this repo and clone your fork
+2. Create a new branch: `git checkout -b feature/your-feature`
+3. Make your changes and commit: `git commit -am 'Add new feature'`
+4. Push to your fork: `git push origin feature/your-feature`
+5. Open a Pull Request on GitHub
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+MIT
+
+---
+
+## 🙏 Acknowledgements
+- [Next.js](https://nextjs.org/)
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Heroicons](https://heroicons.com/)
+
+---
+
+**SponsorSync – Smart Sponsorship & Brand Matchmaking Engine**
