@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { UsersIcon, ArrowLeftIcon } from "@heroicons/react/24/solid";
+import { UsersIcon, ArrowLeftIcon, FaceFrownIcon } from "@heroicons/react/24/solid";
 
 const INDUSTRY_OPTIONS = ["All", "Tech", "Finance", "Education", "Healthcare", "Retail", "Other"];
 const AUDIENCE_OPTIONS = ["All", "Students", "Professionals", "General Public", "Other"];
@@ -80,12 +80,15 @@ export default function Matches() {
         </div>
         <div className="w-full flex flex-col items-center">
           {loading ? (
-            <p className="text-gray-400 text-lg">Loading matches...</p>
+            <div className="flex flex-col items-center justify-center py-12">
+              <svg className="animate-spin h-8 w-8 text-green-400 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" /></svg>
+              <p className="text-gray-400 text-lg">Loading matches...</p>
+            </div>
           ) : error ? (
             <p className="text-red-600 text-lg">{error}</p>
           ) : matches.length === 0 ? (
             <div className="w-full flex flex-col items-center justify-center p-8 bg-green-50 border border-green-200 rounded-2xl shadow-inner">
-              <UsersIcon className="h-16 w-16 text-green-200 mb-4" />
+              <FaceFrownIcon className="h-16 w-16 text-green-200 mb-4" />
               <p className="text-green-700 text-xl font-semibold mb-2">No matches found</p>
               <p className="text-gray-500">Once you connect with a sponsor or club, your matches will appear here!</p>
             </div>
@@ -93,10 +96,13 @@ export default function Matches() {
             <ul className="w-full grid grid-cols-1 sm:grid-cols-2 gap-6">
               {matches.map((match, idx) => {
                 const other = role === "studentClub" ? match.sponsor : match.studentClub;
+                const avatarLetter = other.email ? other.email[0].toUpperCase() : '?';
                 return (
-                  <li key={match._id || idx} className="p-6 rounded-2xl bg-white border border-green-200 shadow flex flex-col gap-2 items-start hover:shadow-lg transition relative">
+                  <li key={match._id || idx} className="p-6 rounded-2xl bg-white border border-green-200 shadow flex flex-col gap-2 items-start hover:shadow-2xl hover:scale-[1.03] transition-all duration-200 ease-in-out relative cursor-pointer">
                     <div className="flex items-center gap-3 mb-2">
-                      <UsersIcon className="h-8 w-8 text-green-500" />
+                      <span className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gradient-to-br from-green-400 to-blue-400 text-white font-bold text-lg shadow">
+                        {avatarLetter}
+                      </span>
                       <span className="font-bold text-green-700 text-lg">{other.email}</span>
                     </div>
                     <div className="text-sm text-gray-500">Role: {role === "studentClub" ? "Sponsor" : "Student Club"}</div>
